@@ -43,7 +43,6 @@ string playfair_cipher(string key, string s, string c)
   //   cout << endl;
   // }
   vector<string> v3;
-  s.erase(remove(s.begin(), s.end(), ' '), s.end());
   s.erase(s.find_last_not_of("\t\n\v\f\r ") + 1);
   for (int i = 0; i < s.length(); i++)
   {
@@ -189,12 +188,14 @@ int main()
   {
     cout << "Plain text(only lowercase alphabets): ";
     getline(cin, s);
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
   }
 
   else if (technique == "decrypt")
   {
     cout << "Cipher text(only lowercase alphabets and must be in even length): ";
     getline(cin, s);
+    s.erase(remove(s.begin(), s.end(), ' '), s.end());
     if (s.length() % 2 != 0)
     {
       cout << "Odd length isn't valid of cipher text";
